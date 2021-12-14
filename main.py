@@ -15,9 +15,8 @@ ORDER_DATA = {}
 @dp.message_handler(commands=['start'], state=None)
 async def start(message: types.Message):
     s.t1()
-    await bot.send_message(message.from_user.id, "Привет!\nХочешь заказать пиццу?")
+    await bot.send_message(message.from_user.id, "Привет!\nКакую ты хочешь пиццу?")
     ORDER_DATA[str(message.from_user.id)] = {}
-    time.sleep(2)
     return await choose_size(message)
 
 
@@ -40,14 +39,13 @@ async def waiting_yes(message: types.Message):
     elif message.text == 'Нет':
         s.tn()
         await bot.send_message(message.from_user.id, 'Ну что же, давай по-новой')
-        time.sleep(2)
         return await choose_size(message)
 
 
 # -----------------------------------------SIZE---------------------------------------------------
 async def choose_size(message: types.Message):
     s.t2()
-    return await bot.send_message(message.from_user.id, 'Выбери размер питсы!',
+    return await bot.send_message(message.from_user.id, 'Выбери размер',
                                   reply_markup=m.size_menu)
 
 
