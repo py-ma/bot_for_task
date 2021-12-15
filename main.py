@@ -1,4 +1,4 @@
-"""main"""
+"""bot's main file"""
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.types import ReplyKeyboardRemove
@@ -46,7 +46,7 @@ async def waiting_yes(message: types.Message):
         await bot.send_message(message.from_user.id, 'Ну что же, давай по-новой')
         return await choose_size(message)
     else:
-        return await bot.send_message(message.from_user.id, 'Не понимаю тебя\nВыбери кнопку из меню ')
+        return await bot.send_message(message.from_user.id, 'Не понимаю тебя\n Выбери кнопку')
 
 
 # -----------------------------------------SIZE---------------------------------------------------
